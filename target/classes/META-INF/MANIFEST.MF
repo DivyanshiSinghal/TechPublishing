@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: dell
+Build-Jdk: 10.0.2
+Implementation-Title: TechPublishing
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.acms
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/TechPublishing
+Created-By: Maven Integration for Eclipse
+
