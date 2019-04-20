@@ -13,7 +13,7 @@ services:
     volumes:
       - /data/mysql
   spring-boot-jpas:
-    image: divyanshiTech
+    image: divyanshitech
     build:
       context: ./
       dockerfile: Dockerfile
