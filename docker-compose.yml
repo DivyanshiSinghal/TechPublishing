@@ -12,7 +12,7 @@ services:
       - 3304:3306
     volumes:
       - /data/mysql
-  spring-boot-jpa:
+  spring-boot-jpas:
     image: divyanshi5/techpublishing_1:latest
     build:
       context: ./
@@ -22,5 +22,5 @@ services:
     ports:
       - 10001:10001
     volumes:
-      - /data/spring-boot-jpa
-    command: java -jar ./target/TechPublishing-0.0.1-SNAPSHOT.jar
+      - /data/spring-boot-jpas
+    command: java -jar /usr/app/TechPublishing-0.0.1-SNAPSHOT.jar
