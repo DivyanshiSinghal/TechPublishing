@@ -9,10 +9,10 @@ services:
       - MYSQL_USER=newuser
       - MYSQL_PASSWORD=password
     ports:
-      - 3306:3306
+      - 3304:3306
     volumes:
       - /data/mysql
-  spring-boot-jpa-app:
+  spring-boot-jpa:
     image: divyanshi5/techpublishing_1:latest
     build:
       context: ./
@@ -22,5 +22,5 @@ services:
     ports:
       - 10001:10001
     volumes:
-      - /data/spring-boot-app
+      - /data/spring-boot-jpa
     command: java -jar ./target/TechPublishing-0.0.1-SNAPSHOT.jar
