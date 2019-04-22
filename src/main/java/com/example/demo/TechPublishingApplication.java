@@ -16,7 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import com.example.demo.Respository.SystemRepository;
-import com.example.demo.model.Admin.java;
+import com.example.demo.model.Admin;
 
 
 
