@@ -15,14 +15,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import com.michaelcgood.dao.SystemRepository;
-import com.michaelcgood.model.SystemExample;
+import com.example.demo.Respository.SystemRepository;
+import com/example/demo/model/Admin.java;
 
 
 
 
 @SpringBootApplication
-@EnableJpaRepositories("com.michaelcgood.dao")
+@EnableJpaRepositories("com.example.demo.Respository")
 public class TechPublishingApplication  implements CommandLineRunner {
 
 	@Autowired
@@ -39,25 +39,29 @@ public class TechPublishingApplication  implements CommandLineRunner {
 		@Override
 	public void run(String... args) throws Exception {
 		// add windows server
-		SystemExample systemExampleWindows = new SystemExample();
-		systemExampleWindows.setName("Windows Server 2012 R2");
-		systemExampleWindows.setLastaudit("2017-08-11");
-		systemRepository.save(systemExampleWindows);
+		Admin ad = new Admin();
+		ad.setName("root");
+		ad.setPassword("root");
+		ad.setAdminname("root");
+		ad.setEmail("d@gmail.com");
+		ad.setPhoneNo("9718629881");
+		
+		systemRepository.save(ad);
 		// add rhel
-		SystemExample systemExampleRhel = new SystemExample();
-		systemExampleRhel.setName("RHEL 7");
-		systemExampleRhel.setLastaudit("2017-07-21");
-		systemRepository.save(systemExampleRhel);
-		// add solaris
-		SystemExample systemExampleSolaris = new SystemExample();
-		systemExampleSolaris.setName("Solaris 11");
-		systemExampleSolaris.setLastaudit("2017-08-13");
-		systemRepository.save(systemExampleSolaris);
-		Iterable<SystemExample> systemlist = systemRepository.findAll();
-		System.out.println("here are system count: " + systemlist.toString());
-		for(SystemExample systemExample:systemlist){
-			System.out.println("Here is a system: " + systemExample.toString());
-		}
+// 		SystemExample systemExampleRhel = new SystemExample();
+// 		systemExampleRhel.setName("RHEL 7");
+// 		systemExampleRhel.setLastaudit("2017-07-21");
+// 		systemRepository.save(systemExampleRhel);
+// 		// add solaris
+// 		SystemExample systemExampleSolaris = new SystemExample();
+// 		systemExampleSolaris.setName("Solaris 11");
+// 		systemExampleSolaris.setLastaudit("2017-08-13");
+// 		systemRepository.save(systemExampleSolaris);
+// 		Iterable<SystemExample> systemlist = systemRepository.findAll();
+// 		System.out.println("here are system count: " + systemlist.toString());
+// 		for(SystemExample systemExample:systemlist){
+// 			System.out.println("Here is a system: " + systemExample.toString());
+	}
 
 }
 
