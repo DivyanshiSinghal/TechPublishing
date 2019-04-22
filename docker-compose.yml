@@ -1,27 +1,38 @@
-version: '2.0'
+version: '3.7'
 
 services:
-  mysql-docker-container:
-    image: mysql:latest
+  db:
+    image: mysql:5.7
+    restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=Tech
-      - MYSQL_USER=newuser
-      - MYSQL_PASSWORD=password
+      MYSQL_DATABASE: 'Tech'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'newuser'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'password'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'root'
     ports:
-      - 3306:3306
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
     volumes:
-      - /data/mysql
-  spring-boot-jpa:
-    image: divyanshitech
-    build:
-      context: ./
-      dockerfile: Dockerfile
+      - my-db:/var/lib/mysql
+
+  web:
+    image: tech:latest
+    restart: always
+    ports:
+      - "10001:10001"
+    expose:
+      # Opens port 3306 on the container
+      - '10001'
+      # Where our data will be persisted
     depends_on:
-      - mysql-docker-container
-    ports:
-      - 10001:10001
-    volumes:
-      - /data/spring-boot-jpa
-   
-    command: java -jar ./target/TechPublishing-0.0.1-SNAPSHOT.war
+       - db
+# Names our volume
+volumes:
+    my-db: {}
